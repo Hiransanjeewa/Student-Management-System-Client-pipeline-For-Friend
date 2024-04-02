@@ -20,8 +20,7 @@ jobs:
       - name: Detect package manager
         id: detect-package-manager
         run: |
-          npm install
-          npm ci 
+        
           
           if [ -f "${{ github.workspace }}/yarn.lock" ]; then
             echo "manager=yarn" >> $GITHUB_OUTPUT
@@ -43,7 +42,10 @@ jobs:
           node-version: "14"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
       - name: Install dependencies
-        run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+        run: 
+          npm install
+          npm ci 
+          ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build project
         run: ${{ steps.detect-package-manager.outputs.runner }} npm run build
       - name: Upload artifact
