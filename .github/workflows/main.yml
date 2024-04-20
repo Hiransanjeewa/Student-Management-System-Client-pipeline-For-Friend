@@ -59,6 +59,4 @@ jobs:
           docker pull hiransanjeewa/student-management-system-frontend:latest
    
           docker run -d -p 80:5173 --name student-management-system-frontend hiransanjeewa/student-management-system-frontend:latest
-
-          docker run -p 80:5173 --name student-management-system-frontend
          
