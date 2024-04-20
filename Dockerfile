@@ -13,11 +13,10 @@ COPY package.json package-lock.json /
 # Installing dependencies
 RUN npm install
 
-
 # Copying all the files in our project
 COPY . .
 
 EXPOSE 5173
 # Starting our application
-CMD npm run preview
+CMD npm run dev
 
