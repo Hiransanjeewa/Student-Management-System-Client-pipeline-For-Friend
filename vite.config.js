@@ -13,6 +13,6 @@ export default defineConfig({
    port: 5173,
    strictPort: true,
    host: true,
-   origin: "http://172.178.112.247:80",
+   origin: "http://172.178.112.247:5173",
   },
  });
