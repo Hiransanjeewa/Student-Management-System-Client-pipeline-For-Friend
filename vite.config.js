@@ -10,7 +10,7 @@ export default defineConfig({
    strictPort: true,
   },
   server: {
-   port: 80,
+   port: 5173,
    strictPort: true,
    host: true,
    origin: "http://172.178.112.247:5173",
