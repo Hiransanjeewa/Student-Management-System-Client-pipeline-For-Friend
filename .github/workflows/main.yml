@@ -28,6 +28,7 @@ jobs:
       
       - name: 'Create env file'
         run: |
+          echo ${{ env.VITE_APP_BASE_URL }}
           touch .env
           echo VITE_APP_BASE_URL=${{ env.VITE_APP_BASE_URL }} >> .env
           echo RESEND_API_KEY=${{ secrets.RESEND_API_KEY }} >> .env
