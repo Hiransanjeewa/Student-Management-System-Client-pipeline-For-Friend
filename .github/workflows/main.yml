@@ -34,7 +34,7 @@ jobs:
           echo VITE_APP_BASE_URL=${{ secrets.VITE_APP_BASE_URL }} || echo ":5000"
           echo "Value of MY_VARIABLE: $MY_VARIABLE"
           touch .env
-          echo VITE_APP_BASE_URL=${{ secrets.VITE_APP_BASE_URL }} || echo ":5000" >> .env
+          echo VITE_APP_BASE_URL=${{ secrets.VITE_APP_BASE_URL:+":5000"}} >> .env
           echo RESEND_API_KEY=${{ secrets.RESEND_API_KEY }} >> .env
           echo MAIL_FROM=${{ secrets.MAIL_FROM }} >> .env
           cat .env
