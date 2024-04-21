@@ -4,7 +4,8 @@ on:
   push:
     branches:
       - 'main'
-
+env:
+  VITE_APP_BASE_URL: ${{ secrets.VITE_APP_BASE_URL }}
 jobs:
   Backend-Build-And-Deploy:
     runs-on: ubuntu-latest
@@ -27,9 +28,8 @@ jobs:
       
       - name: 'Create env file'
         run: |
-          echo "Secret value: ${{ secrets.VITE_APP_BASE_URL }}"
           touch .env
-          echo VITE_APP_BASE_URL=${{ secrets.VITE_APP_BASE_URL }} >> .env
+          echo VITE_APP_BASE_URL=${{ env.VITE_APP_BASE_URL }} >> .env
           echo RESEND_API_KEY=${{ secrets.RESEND_API_KEY }} >> .env
           echo MAIL_FROM=${{ secrets.MAIL_FROM }} >> .env
           cat .env
