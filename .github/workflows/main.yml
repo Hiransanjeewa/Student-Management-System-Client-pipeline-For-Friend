@@ -34,7 +34,7 @@ jobs:
           VITE_APP_BASE_URL: ${{ secrets.VITE_APP_BASE_URL }}
         run: |
           touch .env
-          echo VITE_APP_BASE_URL=${{secrets.VITE_APP_BASE_URL}} >> .env
+          echo VITE_APP_BASE_URL=http://localhost:5000 >> .env
           echo RESEND_API_KEY=${{ secrets.RESEND_API_KEY }} >> .env
           echo MAIL_FROM=${{ secrets.MAIL_FROM }} >> .env
           cat .env
@@ -66,3 +66,4 @@ jobs:
    
           docker run -d -p 5173:5173 --name student-management-system-frontend hiransanjeewa/student-management-system-frontend:latest
          
+# echo VITE_APP_BASE_URL=${{secrets.VITE_APP_BASE_URL}} >> .env
